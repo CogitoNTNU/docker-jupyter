@@ -7,5 +7,5 @@ RUN apk add gcc g++ python3-dev
 RUN pip3 install -r tmp/requirements.txt
 RUN jupyter notebook --generate-config
 ADD setup_files tmp
-ADD init.sh /code
+ADD code /code
 CMD ["sh", "init.sh"]
