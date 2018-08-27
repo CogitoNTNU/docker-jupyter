@@ -1,10 +1,11 @@
-FROM python:3.7-alpine3.8
+FROM ubuntu:bionic
 WORKDIR /code
 RUN mkdir tmp notebook
-ADD setup_files/requirements.txt tmp
-RUN apk add gcc g++ python3-dev
-RUN pip3 install -r tmp/requirements.txt
-RUN jupyter notebook --generate-config
+RUN apt-get update
+RUN apt-get -y install python3 python3-pip
 ADD setup_files tmp
+RUN pip3 install -U pip
+RUN pip3 install --no-cache-dir -r tmp/requirements.txt
+RUN jupyter notebook --generate-config
 ADD code .
 CMD ["sh", "init.sh"]
