@@ -5,5 +5,5 @@ Automatic setup of jupyter notebooks in docker containers
 1. `git clone https://github.com/CogitoNTNU/docker-jupyter.git`
 2. `cd docker-jupyter`
 3. `sudo sh init.sh`
-4. `sudo python3 launch.py <number>`
+4. `sudo python3 launch.py <number of groups>`
 5. `cat passwords.txt`

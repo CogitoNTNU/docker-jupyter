@@ -12,4 +12,15 @@ def launch(n):
 		with open('passwords.txt', 'a') as f:
 			f.write(message + '\n')
 
+def gen_index(n):
+        with open('index.html', 'r') as f:
+                content = f.read()
+
+        paragraphs = '\n'.join(['<p><a href="/group/%s">Group %r</a></p>' % (str(i).rjust(2, '0'), i) for i in range(1, int(n)+1)])
+        content = content % {'body_content': paragraphs}
+
+        with open('/var/www/html/index.html', 'w') as f:
+                f.write(content)
+
+gen_index(sys.argv[1])
 launch(sys.argv[1])
