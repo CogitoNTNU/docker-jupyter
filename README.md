@@ -6,4 +6,4 @@ Automatic setup of jupyter notebooks in docker containers
 2. `cd docker-jupyter`
 3. `sudo sh init.sh`
 4. `sudo python3 launch.py <number>`
-5. `cat password.txt`
+5. `cat passwords.txt`

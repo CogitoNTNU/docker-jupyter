@@ -9,7 +9,7 @@ def launch(n):
 		os.system('sudo docker run -d -p 80%s:8888 -v $PWD/notebooks/%s:/code/notebook -e BASE_URL=%s -e PASSWORD=%s jupyter' % (group, group, group, password))
 		message = 'Group %s: %s' % (group, password)
 		print(message)
-		with open('password.txt', 'a') as f:
+		with open('passwords.txt', 'a') as f:
 			f.write(message + '\n')
 
 launch(sys.argv[1])
