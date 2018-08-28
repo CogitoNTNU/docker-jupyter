@@ -8,4 +8,4 @@ RUN pip3 install -U pip
 RUN pip3 install --no-cache-dir -r tmp/requirements.txt
 RUN jupyter notebook --generate-config
 ADD code .
-CMD ["sh", "init.sh"]
+CMD ["sh", "run.sh"]
