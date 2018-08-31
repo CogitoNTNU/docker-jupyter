@@ -11,7 +11,7 @@ curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.li
 sudo apt-get update
 sudo apt-get -y upgrade
 
-sudo apt-get install -y docker-ce nvidia-driver-384 nginx zip
+sudo apt-get install -y docker-ce nvidia-384 nginx zip
 
 sudo apt-get install -y -f nvidia-docker2
 sudo pkill -SIGHUP dockerd
