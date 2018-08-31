@@ -6,7 +6,7 @@ RUN apt-get update
 RUN apt-get -y install python3 python3-pip module-init-tools nvidia-384 libc6:i386
 ADD setup_files tmp
 RUN apt purge -y nvidia*
-RUN apt install -y nvidia-cuda-toolkit
+RUN apt install -y nvidia-cuda-toolkit linux-headers-$(uname -r)
 RUN cd tmp && \
 	chmod +x cuda_9.0*run* && \
 	./cuda_9.0* --verbose --silent --toolkit --override --driver
