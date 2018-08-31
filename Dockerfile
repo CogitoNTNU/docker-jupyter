@@ -1,15 +1,11 @@
-FROM ubuntu:bionic
+FROM nvidia/cuda
+ENV DEBIAN_FRONTEND=noninteractive
 WORKDIR /code
 RUN mkdir tmp notebook
 RUN dpkg --add-architecture i386
 RUN apt-get update
-RUN apt-get -y install python3 python3-pip module-init-tools nvidia-384 libc6:i386
+RUN apt-get -y install python3 python3-pip
 ADD setup_files tmp
-RUN apt purge -y nvidia*
-RUN apt install -y nvidia-cuda-toolkit linux-headers-$(uname -r)
-RUN cd tmp && \
-	chmod +x cuda_9.0*run* && \
-	./cuda_9.0* --verbose --silent --toolkit --override --driver
 RUN cd tmp && \
 	tar -zxvf *cudnn*.tgz* && \
 	cp cuda/lib64/* /usr/local/cuda-9.0/lib64/ && \
