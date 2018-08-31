@@ -1,8 +1,6 @@
 FROM nvidia/cuda
-ENV DEBIAN_FRONTEND=noninteractive
 WORKDIR /code
 RUN mkdir tmp notebook
-RUN dpkg --add-architecture i386
 RUN apt-get update
 RUN apt-get -y install python3 python3-pip
 ADD setup_files tmp
