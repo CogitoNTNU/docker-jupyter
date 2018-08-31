@@ -5,7 +5,12 @@ import uuid
 def launch(n):
 	n = int(n)
 	if n == 1:
+		password = uuid.uuid4().hex[:6]
 		os.system('sudo docker run --runtime=nvidia -d -p 9000:8888 -v $PWD/notebook/:/code/notebook -e -e PASSWORD=%s jupyter "export SINGLE=true"' % password)
+		message = 'Password: %s' % password
+		print(message)
+		with open('passwords.txt', 'a') as f:
+			f.write(messsage + '\n')
 	else:
 		gen_index(n)
 		for i in range(1, n+1):
