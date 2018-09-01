@@ -3,15 +3,12 @@ import hashlib
 import uuid
 import os
 
-base_url = sys.argv[1]
+base_url = sys.argv[2] if len(sys.argv) > 2 else ''
 salt = uuid.uuid4().hex
-password = hashlib.sha256((sys.argv[2] + salt).encode()).hexdigest()
+password = hashlib.sha256((sys.argv[1] + salt).encode()).hexdigest()
 
 with open('/code/tmp/jupyter.conf', 'r') as f:
 	content = f.read()
-
-if os.environ.get('SINGLE') == 'true':
-	content = content[content.index('\n')+2:]
 
 content = content % {
 	'salt': salt,

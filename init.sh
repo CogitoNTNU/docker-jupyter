@@ -2,11 +2,11 @@ sudo apt-get update
 sudo apt-get -y upgrade
 sudo apt-get -y install nginx zip
 
-sudo mv nginx.conf /etc/nginx/sites-enabled/default
 sudo rm /var/www/html/*
 sudo systemctl restart nginx
 
 if [ "$1" = "gpu" ]; then
+	export GPU=true
 	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 	sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 	sudo add-apt-repository -y ppa:graphics-drivers/ppa
@@ -24,8 +24,8 @@ if [ "$1" = "gpu" ]; then
 	sudo apt-get install -y -f nvidia-docker2
 	sudo pkill -SIGHUP dockerd
 
-	sudo docker build Dockerfile -f Dockerfile/gpu -t jupyter
+	sudo docker build . -f Dockerfile_gpu -t jupyter
 else
 	sudo apt-get -y install docker.io
-	sudo docker build Dockerfile -f Dockerfile/cpu -t jupyter
+	sudo docker build . -f Dockerfile_cpu -t jupyter
 fi

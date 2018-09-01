@@ -3,7 +3,7 @@
 set -e
 
 if [ -d "tmp" ]; then
-	python3 tmp/jupyter_conf.py ${BASE_URL} ${PASSWORD}
+	python3 tmp/jupyter_conf.py ${PASSWORD} ${BASE_URL}
 	rm -rf tmp
 fi
 
