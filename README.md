@@ -25,3 +25,6 @@ Login and get cudnn download url from https://developer.nvidia.com/rdp/cudnn-dow
 
 ### Multiple notebooks
 `sudo sh launch.sh <number of notebooks>`
+
+## Save
+Save your work with `sudo sh zip.sh` and `scp` the zip somewhere safe.
