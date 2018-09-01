@@ -3,7 +3,7 @@ import os
 import uuid
 
 def launch(n):
-	runtime = '--runtime=nvidia' if os.environ.get('gpu') else ''
+	runtime = '--runtime=nvidia' if 'gpu' in os.listdir('etc') else ''
 	n = int(n)
 	if n == 1:
 		os.system('sudo cp etc/nginx_single.conf /etc/nginx/sites-enabled/default && sudo systemctl restart nginx')

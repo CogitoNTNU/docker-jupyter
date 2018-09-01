@@ -6,7 +6,7 @@ sudo rm /var/www/html/*
 sudo systemctl restart nginx
 
 if [ "$1" = "gpu" ]; then
-	export GPU=true
+	touch etc/gpu
 	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 	sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 	sudo add-apt-repository -y ppa:graphics-drivers/ppa
