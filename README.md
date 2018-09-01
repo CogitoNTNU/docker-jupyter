@@ -1,7 +1,9 @@
 # docker-jupyter
-Automatic setup of jupyter notebooks in docker containers
+*Automatic setup of jupyter notebooks in docker containers, with tensorflow-gpu support.*
 
-Run either gpu or cpu setup and launch either single or multiple
+**WARNING**: It is intended to run this on a clean install of Ubuntu 18.04, it will modify and delete items from your system!
+
+Run either gpu or cpu setup and launch either single or multiple notebooks. Use the cpu version if you are not going to use tensorflow or don't have a graphics card in your system. You need to join the nvidia developer program and download cudnn for tensorflow-gpu. Get the download link by starting the download in your browser, go to the browsers download page and pause it. Finally right click and copy download address.
 
 ## Setup
 `git clone https://github.com/CogitoNTNU/docker-jupyter.git && cd docker-jupyter`
