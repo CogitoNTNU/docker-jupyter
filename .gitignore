@@ -1,2 +1,6 @@
 /notebooks
+/notebook
+notebooks*
+notebook*
+/etc/gpu
 passwords.txt
